@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Raiting Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="book_title" placeholder="book_title" required="required" />
+        <input type="text" name="book_image_url" placeholder="book_image_url" required="required" />
+        <input type="text" name="book_desc" placeholder="book_desc" required="required" />
+        <input type="text" name="book_genre" placeholder="book_genre" required="required" />
+        <input type="text" name="book_authors" placeholder="book_authors" required="required" />
+        <input type="text" name="book_format" placeholder="book_format" required="required" />
+        <input type="text" name="book_pages" placeholder="book_pages" required="required" />
+        <input type="text" name="book_review_count" placeholder="book_review_count" required="required" />
+		<input type="text" name="book_rating_count" placeholder="book_rating_count" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
